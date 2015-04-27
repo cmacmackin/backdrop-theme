@@ -44,22 +44,22 @@
     max-width: none;
     
     .content-pane {
-        @include grid-column($columns:12,$collaps:true);
+        @include grid-column($columns:12,$collapse:true);
         @media #{$medium-only} {
             @include grid-column($columns:8,$collaps:true);
         }
         @media #{$large-up} {
-            @include grid-column($columns:9,$collaps:true);
+            @include grid-column($columns:9,$collapse:true);
         }
     }
     
     .image-pane {
-        @include grid-column($columns:12,$collaps:true);
+        @include grid-column($columns:12,$collapse:true);
         @media #{$medium-only} {
             @include grid-column($columns:4,$collaps:true);
         }
         @media #{$large-up} {
-            @include grid-column($columns:3,$collaps:true);
+            @include grid-column($columns:3,$collapse:true);
         }        
     }
 }
