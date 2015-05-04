@@ -1,3 +1,6 @@
+@import "charterfont";
+@import "font-awesome";
+  
 @import "settings";
 @import "foundation";
 
@@ -39,28 +42,265 @@
 //   "foundation/components/offcanvas",
 //   "foundation/components/visibility";
 
+$footer-height: rem-calc(300);
+
+/*
+.main-content {
+    padding-bottom: $footer-height;
+    overflow: auto;
+}
+*/
+
+#link-image img{
+    max-height: 33%;
+}
+
+body:before {
+    content:"";
+    height:100%;
+    float:left;
+    width:0;
+    margin-top: rem-calc(-32767);/* thank you Erik J - negate effect of float*/
+}
+
+footer {
+    @include grid-row();
+    border-top: rem-calc(4) solid $topbar-bg-color;
+    background: $silver;
+    min-width: 100%;
+    
+    p {
+        margin-bottom: rem-calc(10);
+    }
+    
+    hr {
+        margin-top: 0;
+        margin-bottom: rem-calc(10);
+    }
+    
+    .tag-cloud {
+        margin-top: rem-calc(21);
+        margin-bottom: rem-calc(20);
+    }
+/*
+    position: absolute;
+    bottom: 0;
+    height: $footer-height;
+    margin-top: -$footer-height;
+    padding-top: rem-calc(10);
+*/
+}
+
+.sub-footer p {
+    font-size: 80%;
+    font-family: $font-family-sans-serif;
+    color: $monsoon;
+}
+
 .master-row {
     @include grid-row();
     max-width: none;
-    
+    height: 100%;
+/*
+    z-index: -10000;
+*/
     .content-pane {
         @include grid-column($columns:12,$collapse:true);
-        @media #{$medium-only} {
-            @include grid-column($columns:8,$collaps:true);
-        }
         @media #{$large-up} {
-            @include grid-column($columns:9,$collapse:true);
+            @include grid-column($columns:8,$collapse:true);
+            min-height: 100%;
+        }
+        z-index: 10;
+        box-shadow: 0 0 rem-calc(10) rem-calc(2) #333333;
+        position:relative;
+        min-height: 100%;
+        .row {
+            margin-right: 0;
+            min-width: 75%;
         }
     }
     
     .image-pane {
         @include grid-column($columns:12,$collapse:true);
-        @media #{$medium-only} {
-            @include grid-column($columns:4,$collaps:true);
-        }
+        z-index: 1;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        padding-top: rem-calc(18);
+        min-height: rem-calc(200);
+        
         @media #{$large-up} {
-            @include grid-column($columns:3,$collapse:true);
-        }        
+            @include grid-column($columns:4,$collapse:true);
+            min-height: auto;
+            position: fixed;
+            padding-left: rem-calc(5);
+            right: 0;
+            height: 100%;
+            .row {
+                max-width: rem-calc(530);
+                margin-left: 0;
+                margin-right: auto;
+            }
+        }
+    
+/*
+        .th {
+            margin-top: rem-calc(14);
+            margin-bottom: rem-calc(14);
+        }
+*/
     }
 }
 
+.title-bar {
+    h1 {
+        font-size: rem-calc(60);
+        display: inline-block;
+        margin-right: rem-calc(20);
+        margin-bottom: 0;
+    }
+    h2 {
+        font-size: rem-calc(49);
+        line-height: 0.8;
+        display: inline-block;
+        margin-bottom: 0;
+        margin-top: rem-calc(-10);
+    }
+    hr {
+        margin-top: rem-calc(10);
+        margin-bottom: rem-calc(25);
+    }
+    $title-link-color: $body-font-color;
+    a {
+        color: $title-link-color;
+    }
+    a:hover, a:focus {
+        color: scale-color($title-link-color, $lightness: 30%);
+    }
+    a:active {
+        color: scale-color($title-link-color, $lightness: 30%);
+    }
+}
+
+/*
+nav.top-bar {
+// If you want menu-items to be centred
+    text-align:center;
+
+}
+*/
+@media #{$medium-up}{
+/*
+// If you want menu-items to be centred
+    section.top-bar-section {
+        display: inline-block;
+    }
+*/
+
+    .top-bar li.active:after {
+        position: relative;
+        display: block;
+        bottom: rem-calc(4);
+        width: 0;
+        height: 0;
+        left: 50%;
+        margin-left: rem-calc(-5);
+        margin-bottom: rem-calc(-5);
+        vertical-align: middle;
+        content: " ";
+        border-right: rem-calc(5) solid transparent;
+        border-bottom: rem-calc(5) solid $ghost;
+        border-left: rem-calc(5) solid transparent;
+    }
+}
+
+div.transparent {
+    background-color:rgba(242,242,242,0.6)
+}
+
+.no-buffer {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.left-nav {  
+    @include side-nav;
+    li {
+        margin: 0;
+        text-align: right;
+    }
+}
+
+.right-nav {
+    @include side-nav;
+    li {
+        margin: 0;
+        text-align: left;
+    }
+}
+
+/*
+.social-button {
+    @include button;
+    margin-top: rem-calc(5);
+    margin-left: rem-calc(1);
+    margin-right: rem-calc(1);
+    padding-top: rem-calc(8.5);
+    padding-bottom: rem-calc(8.5);
+    padding-left: rem-calc(5);
+    padding-right: rem-calc(5);
+    margin-bottom: 0;
+}
+*/
+
+ul.link-list {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-top: rem-calc(10);
+    list-style-type: none;
+    text-align: center;
+    li {
+        display: inline-block;
+        margin-left: rem-calc(10);
+        margin-right: rem-calc(10);
+    }
+}
+
+.copyright {
+    position: absolute;
+    bottom: 0;
+    p {
+        font-size: 80%;
+    }
+    hr {
+        margin-top: rem-calc(10);
+        margin-bottom: rem-calc(10);
+    }
+}
+
+.blogroll {
+    @include panel;
+    @include side-nav;
+    text-align: center;
+    background-color:rgba(242,242,242,0.6);
+    margin-left: 20%;
+    margin-right: 20%;
+    @media #{$medium-only} {
+        margin-left: initial;
+        margin-right: initial;
+        margin-top: rem-calc(14);
+    }
+    
+    li {
+        margin-bottom: 0;
+        a:not(.botton) {
+            padding-top: rem-calc(3);
+            padding-bottom: rem-calc(3);
+        }
+    }
+    
+    li.heading {
+        color: $charcoal;
+    }
+}

@@ -4,7 +4,8 @@ module.exports = function(grunt) {
 
     sass: {
       options: {
-        includePaths: ['bower_components/foundation/scss']
+          includePaths: ['bower_components/foundation/scss',
+			 'bower_components/fontawesome/scss/']
       },
       dist: {
         options: {
@@ -17,7 +18,16 @@ module.exports = function(grunt) {
       }
     },
 
-    watch: {
+    copy: {
+      font_awesome: {
+          expand: true,
+          flatten: true,
+          src: ['bower_components/fontawesome/fonts/*'],
+          dest: 'fonts'
+        }
+    },
+
+      watch: {
       grunt: {
         options: {
           reload: true
@@ -34,7 +44,8 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
-
-  grunt.registerTask('build', ['sass']);
+  grunt.loadNpmTasks('grunt-contrib-copy');
+    
+  grunt.registerTask('build', ['copy','sass']);
   grunt.registerTask('default', ['build','watch']);
 }

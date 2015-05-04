@@ -4,176 +4,190 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Foundation</title>
+    <!--[if !IE 7]>
+	<style type="text/css">
+		#main-content {display:table;height:100%}
+	</style>
+    <![endif]-->
     <link rel="stylesheet" href="css/app.css" />
     <script src="bower_components/modernizr/modernizr.js"></script>
   </head>
   <body>
     <div class="master-row">
-        <div class="content-pane">
-            <H1>Test</H1>
-            <p>Does this damn thing work, I wonder?</p>
+        <div class="content-pane main-content">
+    <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+            <li class="name"><!-- Leave this empty --></li>
+            <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+        </ul>
+        <section class="top-bar-section">
+            <ul class="left">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">About Me</a></li>
+                <li><a href="#">Research</a></a></li>
+                <li><a href="#">CV</a></a></li>
+                <li><a href="#">Software</a></a></li>
+                <li><a href="#">Contact</a></a></li>
+            </ul>
+            <ul class="right">
+                <li><a href="#">News</a></a></li>
+            </ul>
+
+        </section>
+    </nav>
+    <div class="row title-bar">
+        <div class="small-12 columns">
+            <h1><a href="#">Chris MacMackin</a></h1><h2> <small>DPhil Student in Atmospheric, Ocean, and Planetary Physics</small></h2>
+            <hr>
         </div>
-        <div class="image-pane">
-            <p>And what about this thing?</p>
-        </div>
-    </div>
-    <div class="row">
-      <div class="large-12 columns">
-        <h1>Welcome to Foundation</h1>
-      </div>
     </div>
     
     <div class="row">
-      <div class="large-12 columns">
-        <div class="panel">
-          <h3>We&rsquo;re stoked you want to try Foundation! </h3>
-          <p>To get going, this file (index.html) includes some basic styles you can modify, play around with, or totally destroy to get going.</p>
-          <p>Once you've exhausted the fun in this document, you should check out:</p>
-          <div class="row">
-            <div class="large-4 medium-4 columns">
-              <p><a href="http://foundation.zurb.com/docs">Foundation Documentation</a><br />Everything you need to know about using the framework.</p>
-            </div>
-            <div class="large-4 medium-4 columns">
-              <p><a href="http://zurb.com/university/code-skills">Foundation Code Skills</a><br />These online courses offer you a chance to better understand how Foundation works and how you can master it to create awesome projects.</p>
-            </div>
-            <div class="large-4 medium-4 columns">
-              <p><a href="http://foundation.zurb.com/forum">Foundation Forum</a><br />Join the Foundation community to ask a question or show off your knowlege.</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-4 medium-4 medium-push-2 columns">
-              <p><a href="http://github.com/zurb/foundation">Foundation on Github</a><br />Latest code, issue reports, feature requests and more.</p>
-            </div>
-            <div class="large-4 medium-4 medium-pull-2 columns">
-              <p><a href="https://twitter.com/ZURBfoundation">@zurbfoundation</a><br />Ping us on Twitter if you have questions. When you build something with this we'd love to see it (and send you a totally boss sticker).</p>
-            </div>        
-          </div>
+        <div class="small-12 columns">
+            <p>This that the other thing. This that the other thing. 
+               This that the other thing. This that the other thing.</p>
+            <p>This that the other thing.</p>
+            <p>This that the other thing. <em>This should be italic.</em>
+               This that the other thing. <a href="http://en.wikipedia.org/wiki/Main_Page">Wikipedia</a>
+               This that the other thing. This that the other thing.</p>
+            <p>This that the other thing. <strong>This should be bold.</strong></p>
+            <p>This that the other thing.</p>
         </div>
-      </div>
     </div>
+    <footer class="show-for-large-up">
+            <div class="row">
+            <div class="small-6 medium-3 columns">
+                    <ul class="left-nav">
+                        <li><a href="#">Home <i class="fa fa-home fa-fw"></i></a></li>
+                        <li><a href="#">Categories &nbsp;<i class="fa fa-folder-open fa-fw"></i></a></li>
+                    </ul>
+            </div>
+            <div class="small-6 medium-3 medium-push-6 columns">
+                    <ul class="right-nav">
+                        <li><a href="#"><i class="fa fa-rss fa-fw"></i>&nbsp;Feed</a></li>
+                        <li><a href="#"><i class="fa fa-archive fa-fw"></i>&nbsp;Archives</a></li>
+                    </ul>
+            </div>
+            <div class="small-12 medium-6 medium-pull-3 columns text-center">
+                <p class="tag-cloud"><a href="#"><i class="fa fa-tags"></i>&nbsp;Tags: </a>
+                <span class="label">Writing</span>
+                <span class="label">Brazil</span>
+                <span class="label">Linux</span>
+                <span class="label">Programming</span>
+                <span class="label">Socialism</span>
+                <span class="label">Mathematical Models</span>
+                <span class="label">gfortran</span>
+                <span class="label">Blogging</span>
+                <span class="label">Thoughts</span>
+                <span class="label">Nuclear Power</span>
+                <span class="label">Mathematics</span>
+                <span class="label">Guards! Guards!</span>
+                <span class="label">Canada Post</span>&nbsp;&hellip;
+                </p>
+            </div>
+        <div class="small-12 columns sub-footer">
+            <hr>
+            <div class="small-12 medium-6 columns">
+                <p class="small-text-center medium-text-left">&copy; 2015 Chris MacMackin 
+                <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="cc.png" /></a></p>
+            </div>
+            <div class="small-12 medium-6 columns">
+                <p class="small-text-center medium-text-right">Proudly powered by 
+                <a href="http://blog.getpelican.com/">Pelican</a>,
+                which takes great advantage of
+                <a href="https://www.python.org/">Python</a>.</p>
+            </div>
+        </div>
+        </div>
+    </footer>
+        </div>
+        <div class="image-pane main-content" style="background: url('iceshelf1.jpg'); background-size:cover; background-position: center;">
+            <div class="row">
+                <div class="small-12 medium-6 medium-push-3 large-reset-order large-12 columns">
+                    <div class="panel transparent" id="about-me"><div class="row">
+                        <div class="show-for-medium-up medium-3 columns no-buffer"><a class="th" href="gradChoice.jpg">
+                        <img src="gradChoice.jpg">
+                        </a></div>
+                        <div class="small-12 medium-9 columns">
+                            This is a blurb about me. I'm a student studying
+                            physics. You may know me. You may not. Whatever. This
+                            that the other thing. This that the other thing.
+                        </div>
+                        <div class="small-12 columns">
+                            <ul class="link-list">
+                                <li><a href="#"><i class="fa fa-envelope"></i>&nbsp; Email</a></li>
+                                <li><a href="#"><i class="fa fa-github"></i>&nbsp; GitHub</a></li>
 
-    <div class="row">
-      <div class="large-8 medium-8 columns">
-        <h5>Here&rsquo;s your basic grid:</h5>
-        <!-- Grid Example -->
-
-        <div class="row">
-          <div class="large-12 columns">
-            <div class="callout panel">
-              <p><strong>This is a twelve column section in a row.</strong> Each of these includes a div.panel element so you can see where the columns are - it's not required at all for the grid.</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="large-6 medium-6 columns">
-            <div class="callout panel">
-              <p>Six columns</p>
-            </div>
-          </div>
-          <div class="large-6 medium-6 columns">
-            <div class="callout panel">
-              <p>Six columns</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="large-4 medium-4 small-4 columns">
-            <div class="callout panel">
-              <p>Four columns</p>
-            </div>
-          </div>
-          <div class="large-4 medium-4 small-4 columns">
-            <div class="callout panel">
-              <p>Four columns</p>
-            </div>
-          </div>
-          <div class="large-4 medium-4 small-4 columns">
-            <div class="callout panel">
-              <p>Four columns</p>
-            </div>
-          </div>
-        </div>
-        
-        <hr />
-                
-        <h5>We bet you&rsquo;ll need a form somewhere:</h5>
-        <form>
-          <div class="row">
-            <div class="large-12 columns">
-              <label>Input Label</label>
-              <input type="text" placeholder="large-12.columns" />
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-4 medium-4 columns">
-              <label>Input Label</label>
-              <input type="text" placeholder="large-4.columns" />
-            </div>
-            <div class="large-4 medium-4 columns">
-              <label>Input Label</label>
-              <input type="text" placeholder="large-4.columns" />
-            </div>
-            <div class="large-4 medium-4 columns">
-              <div class="row collapse">
-                <label>Input Label</label>
-                <div class="small-9 columns">
-                  <input type="text" placeholder="small-9.columns" />
+                            </ul>
+                        </div>
+                    </div></div>
                 </div>
-                <div class="small-3 columns">
-                  <span class="postfix">.com</span>
+                <div class="small-12 medium-3 medium-pull-9 large-reset-order large-12 columns">
+                    <ul class="blogroll">
+                        <li class="heading">Things I read&hellip;</li>
+                        <li><a href="#">Button</a></li>
+                        <li><a href="#">New Button</a></li>
+                        <li><a href="#">Third Button</a></li>
+                        <li><a href="#">Button 4</a></li>
+                    </ul>
                 </div>
-              </div>
+<!--
+                <div class="small-12 medium-3 large-12 columns">
+                    <div class="small-6 medium-12 large-6 small-centered columns">
+                        <a class="th" href="http://www.ox.ac.uk/"><img src="oxford.png"></a>
+                    </div>
+                </div>
+-->
+           </div>
+        <footer class="hide-for-large-up">
+            <div class="row">
+            <div class="small-6 medium-3 columns">
+                    <ul class="left-nav">
+                        <li><a href="#">Home <i class="fa fa-home fa-fw"></i></a></li>
+                        <li><a href="#">Categories &nbsp;<i class="fa fa-folder-open fa-fw"></i></a></li>
+                    </ul>
             </div>
-          </div>
-          <div class="row">
-            <div class="large-12 columns">
-              <label>Select Box</label>
-              <select>
-                <option value="husker">Husker</option>
-                <option value="starbuck">Starbuck</option>
-                <option value="hotdog">Hot Dog</option>
-                <option value="apollo">Apollo</option>
-              </select>
+            <div class="small-6 medium-3 medium-push-6 columns">
+                    <ul class="right-nav">
+                        <li><a href="#"><i class="fa fa-rss fa-fw"></i>&nbsp;Feed</a></li>
+                        <li><a href="#"><i class="fa fa-archive fa-fw"></i>&nbsp;Archives</a></li>
+                    </ul>
             </div>
-          </div>
-          <div class="row">
-            <div class="large-6 medium-6 columns">
-              <label>Choose Your Favorite</label>
-              <input type="radio" name="pokemon" value="Red" id="pokemonRed"><label for="pokemonRed">Radio 1</label>
-              <input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label for="pokemonBlue">Radio 2</label>
+            <div class="small-12 medium-6 medium-pull-3 columns text-center">
+                <p class="tag-cloud"><a href="#"><i class="fa fa-tags"></i>&nbsp;Tags: </a>
+                <span class="label">Writing</span>
+                <span class="label">Brazil</span>
+                <span class="label">Linux</span>
+                <span class="label">Programming</span>
+                <span class="label">Socialism</span>
+                <span class="label">Mathematical Models</span>
+                <span class="label">gfortran</span>
+                <span class="label">Blogging</span>
+                <span class="label">Thoughts</span>
+                <span class="label">Nuclear Power</span>
+                <span class="label">Mathematics</span>
+                <span class="label">Guards! Guards!</span>
+                <span class="label">Canada Post</span>&nbsp;&hellip;
+                </p>
             </div>
-            <div class="large-6 medium-6 columns">
-              <label>Check these out</label>
-              <input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>
-              <input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox 2</label>
+        <div class="small-12 columns sub-footer">
+            <hr>
+            <div class="small-12 medium-6 columns">
+                <p class="small-text-center medium-text-left">&copy; 2015 Chris MacMackin 
+                <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="cc.png" /></a></p>
             </div>
-          </div>
-          <div class="row">
-            <div class="large-12 columns">
-              <label>Textarea Label</label>
-              <textarea placeholder="small-12.columns"></textarea>
+            <div class="small-12 medium-6 columns">
+                <p class="small-text-center medium-text-right">Proudly powered by 
+                <a href="http://blog.getpelican.com/">Pelican</a>,
+                which takes great advantage of
+                <a href="https://www.python.org/">Python</a>.</p>
             </div>
-          </div>
-        </form>
-      </div>     
-
-      <div class="large-4 medium-4 columns">
-        <h5>Try one of these buttons:</h5>
-        <p><a href="#" class="small button">Simple Button</a><br/>
-        <a href="#" class="small radius button">Radius Button</a><br/>
-        <a href="#" class="small round button">Round Button</a><br/>            
-        <a href="#" class="medium success button">Success Btn</a><br/>
-        <a href="#" class="medium alert button">Alert Btn</a><br/>
-        <a href="#" class="medium secondary button">Secondary Btn</a></p>           
-        <div class="panel">
-          <h5>So many components, girl!</h5>
-          <p>A whole kitchen sink of goodies comes with Foundation. Check out the docs to see them all, along with details on making them your own.</p>
-          <a href="http://foundation.zurb.com/docs/" class="small button">Go to Foundation Docs</a>          
         </div>
-      </div>
+        </div>
+        </footer>
+        </div>
     </div>
-
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+   <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/foundation/js/foundation.min.js"></script>
     <script src="js/app.js"></script>
   </body>
