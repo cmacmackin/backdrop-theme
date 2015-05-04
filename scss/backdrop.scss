@@ -127,6 +127,7 @@ footer {
         background-position: center;
         position: relative;
         padding-top: rem-calc(18);
+        padding-bottom: rem-calc(18);
         min-height: rem-calc(200);
         
         @media #{$large-up} {
@@ -293,7 +294,9 @@ ul.link-list {
     @media #{$medium-only} {
         margin-left: initial;
         margin-right: initial;
+/*
         margin-top: rem-calc(14);
+*/
     }
     
     li {

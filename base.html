@@ -1,0 +1,166 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <link rel="shortcut icon" href=" {{ SITEURL }}{{ FAVICON }}" />
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="{{AUTHOR}}" />
+        <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+        
+        {% block description %}
+        <meta name="description" content="{{ SITESUBTITLE }}" />
+        <meta name="keywords" content="Blog{% for keyword in BLOGKEYWORDS %} {{ keyword }}{% endfor %} "/>
+        {% endblock description %}
+
+        <!--[if !IE 7]>
+        <style type="text/css">
+            #main-content {display:table;height:100%}
+        </style>
+        <![endif]-->
+        <link rel="stylesheet" href="{{ SITEURL }}/css/app.css" />
+        <script src="{{ SITEURL }}/js /modernizr.js"></script>
+
+        {% if FEED_ALL_ATOM %}
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
+        {% endif %}
+        {% if FEED_ALL_RSS %}
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Full RSS Feed" />
+        {% endif %}
+        {% if FEED_ATOM %}
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+        {% endif %}
+        {% if FEED_RSS %}
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+        {% endif %}
+        {% if CATEGORY_FEED_ATOM and category %}
+        <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />
+        {% endif %}
+        {% if CATEGORY_FEED_RSS and category %}
+        <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(category.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories RSS Feed" />
+        {% endif %}
+        {% if TAG_FEED_ATOM and tag %}
+        <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Tags Atom Feed" />
+        {% endif %}
+        {% if TAG_FEED_RSS and tag %}
+        <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
+        {% endif %}
+
+    </head>
+      
+
+    <body>
+        <div class="master-row">
+
+            <div class="content-pane main-content">
+                <nav class="top-bar" data-topbar role="navigation">
+                    <ul class="title-area">
+                        <li class="name"><!-- Leave this empty --></li>
+                        <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+                    </ul>
+                    <section class="top-bar-section">
+                        <ul class="left">
+                        {% for p in PAGES %}
+                            <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+                        </ul>
+                        <ul class="right">
+                        {% for cat, null in CATEGORIES %}
+                            <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+                        {% endfor %}
+                        </ul>
+                    </section>
+                </nav>
+
+                <div class="row title-bar">
+                    <div class="small-12 columns">
+                        <h1><a href="{{ SITEURL }}">{{ SITENAME }}</a></h1><h2> <small>{{ SITESUBTITLE }}</small></h2>
+                        <hr>
+                    </div>
+                </div>
+        
+                <div class="row">
+                {% block content %}
+                    <div class="small-12 columns">
+                        <p>This that the other thing. This that the other thing. 
+                           This that the other thing. This that the other thing.</p>
+                        <p>This that the other thing.</p>
+                        <p>This that the other thing. <em>This should be italic.</em>
+                           This that the other thing. <a href="http://en.wikipedia.org/wiki/Main_Page">Wikipedia</a>
+                           This that the other thing. This that the other thing.</p>
+                        <p>This that the other thing. <strong>This should be bold.</strong></p>
+                        <p>This that the other thing.</p>
+                    </div>
+                {% endblock content %}
+                </div>
+
+                <footer class="show-for-large-up">
+                    {% include 'footer.html' %}
+                </footer>
+            </div>
+            
+            <div class="image-pane main-content" style="background: url('{{ BACKDROP_IMAGE }}'); background-size:cover; background-position: center;">
+                <div class="row">
+                    <div class="small-12 medium-6 medium-push-3 large-reset-order large-12 columns">
+                    {% if SITE_DESCRIPTION or EMAIL or SOCIAL %}
+                        <div class="panel transparent" id="about-me">
+                            <div class="row">
+                                <div class="show-for-medium-up medium-3 columns no-buffer">
+                                    <a class="th" href="{{ PROFILE_IMAGE_URL }}">
+                                        <img src="{{ PROFILE_IMAGE_URL }}">
+                                    </a>
+                                </div>
+                                <div class="small-12 medium-9 columns">
+                                    {{ SITE_DESCRIPTION }}
+                                </div>
+                            {% if EMAIL or SOCIAL %}
+                                <div class="small-12 columns">
+                                    <ul class="link-list">
+                                    {% if EMAIL%}
+                                        <li><a href="mailto:{{ EMAIL}}"><i class="fa fa-envelope"></i>&nbsp; Email</a></li>
+                                    {% endif %}
+                                    {% for name,link in SOCIAL %}
+                                        <li><a href="{{ link }}"><i class="fa fa-{{ name|lower }}"></i>&nbsp; {{ name }}</a></li>
+                                    {% endfor %}
+                                    </ul>
+                                </div>
+                            {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                    &nbsp;
+                    </div>
+                    <div class="small-12 medium-3 medium-pull-9 large-reset-order large-12 columns">
+                    {% if LINKS %}
+                        <ul class="blogroll">
+                            <li class="heading">Blogroll&hellip;</li>
+                        {% for name, url in LINKS %}
+                            <li><a href="{{ url }}">{{ name }}</a></li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                    </div>
+<!--
+                    <div class="small-12 medium-3 large-12 columns">
+                        <div class="small-6 medium-12 large-6 small-centered columns">
+                            <a class="th" href="http://www.ox.ac.uk/"><img src="oxford.png"></a>
+                        </div>
+                    </div>
+-->
+               </div>
+            </div>
+        </div>
+        
+        
+        <div class="row">
+            <footer class="hide-for-large-up">
+                {% include 'footer.html' %}
+            </footer>
+        </div>
+        
+        
+        <script src="{{ SITEURL }}/js/jquery.min.js"></script>
+        <script src="{{ SITEURL }}/js/foundation.min.js"></script>
+        <script src="{{ SITEURL }}/js/app.js"></script>
+    </body>
+  
+</html>

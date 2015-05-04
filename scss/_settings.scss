@@ -121,13 +121,15 @@ $include-html-global-classes: $include-html-classes;
    $oxford-blue : #002147;
    
 // We use these as default colors throughout
-   $primary-color: #00499c;
+   $primary-color: #a21723;
    $secondary-color: #e7e7e7;
-   $alert-color: #9c1500;
-   $success-color: $oxford-blue;
-   $warning-color: #9c5300;
-   $info-color: #0070f0;
-
+   $alert-color: #71030c;
+   $success-color: #17a35f;
+   $warning-color: #a35117;
+   $info-color: #1777a3;
+/*
+#14455c
+*/
 // We use these to control various global styles
    $body-bg: $ghost;
 // $body-font-color: $jet;
@@ -1383,7 +1385,7 @@ $include-html-global-classes: $include-html-classes;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-   $topbar-bg-color: $success-color;
+   $topbar-bg-color: $alert-color;
    $topbar-bg: $topbar-bg-color;
 
 // Height and margin

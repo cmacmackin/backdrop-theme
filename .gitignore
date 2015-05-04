@@ -2,3 +2,9 @@
 /css/*
 /bower_components/*
 /node_modules/*
+/pelican-theme/
+/js/foundation.min.js
+/js/jquery.min.js
+/js/modernizr.js
+*.jpg
+*.png
