@@ -215,7 +215,11 @@ nav.top-bar {
 }
 
 div.transparent {
-    background-color:rgba(242,242,242,0.6)
+    background-color:rgba(242,242,242,0.6);
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
 }
 
 .no-buffer {
@@ -302,5 +306,7 @@ ul.link-list {
     
     li.heading {
         color: $charcoal;
+        padding-left: rem-calc(10);
+        padding-right: rem-calc(10);
     }
 }
