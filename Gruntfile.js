@@ -9,11 +9,11 @@ module.exports = function(grunt) {
       },
       dist: {
         options: {
-          outputStyle: 'compressed',
+          //outputStyle: 'compressed',
           sourceMap: true,
         },
         files: {
-          'css/app.css': 'scss/app.scss'
+          'css/backdrop.css': 'scss/backdrop.scss'
         }
       }
     },
@@ -48,7 +48,7 @@ module.exports = function(grunt) {
       pelican_fonts: {
         expand: true,
         flatten: true,
-        src: ['fonts'],
+        src: ['fonts/*'],
         dest: 'pelican-theme/static/fonts'
       },
       pelican_html: {

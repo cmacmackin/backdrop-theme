@@ -20,10 +20,10 @@
         </ul>
     </div>
     <div class="small-12 medium-6 medium-pull-3 columns text-center">
-    {% if TAGS%}
+    {% if tags %}
         <p class="tag-cloud">
             <a href="{{ SITEURL }}/tags.html"><i class="fa fa-tags"></i>&nbsp;Tags:</a>&nbsp;&nbsp;
-        {% for tag in TAG_CLOUD %}
+        {% for tag in tag_cloud %}
             <a href="{{ SITEURL }}/tag/{{ tag.0|string|replace(" ", "-" )|lower }}.html"><span class="label">{{ tag.0 }}</span></a>
         {% endfor %}
             &nbsp;&hellip;

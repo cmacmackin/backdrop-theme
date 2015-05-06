@@ -51,8 +51,17 @@ $footer-height: rem-calc(300);
 }
 */
 
-#link-image img{
+p img {
+  float:left;
+  padding:5px
+}
+
+#link-image img {
     max-height: 33%;
+}
+
+#about-me {
+    margin-bottom: 0;
 }
 
 body:before {
@@ -161,7 +170,9 @@ footer {
         margin-bottom: 0;
     }
     h2 {
+/*
         font-size: rem-calc(49);
+*/
         line-height: 0.8;
         display: inline-block;
         margin-bottom: 0;
@@ -169,7 +180,7 @@ footer {
     }
     hr {
         margin-top: rem-calc(10);
-        margin-bottom: rem-calc(25);
+        margin-bottom: rem-calc(10);
     }
     $title-link-color: $body-font-color;
     a {
@@ -312,4 +323,48 @@ ul.link-list {
         padding-left: rem-calc(10);
         padding-right: rem-calc(10);
     }
+}
+
+.info-bar {
+/*
+    @include panel;
+*/
+    border-top: rem-calc(1) solid $silver;
+    border-bottom: rem-calc(1) solid $silver;
+    padding: rem-calc(8);
+    li {
+        font-size: 80%;
+    }
+    ul {
+        margin-bottom: rem-calc(2);
+    }
+}
+
+.small-articles {
+    font-size: 90%;
+}
+
+p.tag-page {
+    line-height: 1.9;
+}
+
+.summary {
+    padding-bottom: rem-calc(5);
+    pre {
+        display: none;
+    }
+}
+
+.article {
+    padding-bottom: rem-calc(5);
+}
+
+pre {
+    @include panel;
+}
+
+.highlight pre {
+    overflow-x: auto;
+    overflow-wrap: normal;
+    white-space: pre;
 }

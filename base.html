@@ -18,8 +18,9 @@
             #main-content {display:table;height:100%}
         </style>
         <![endif]-->
-        <link rel="stylesheet" href="{{ SITEURL }}/css/app.css" />
-        <script src="{{ SITEURL }}/js /modernizr.js"></script>
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/backdrop.css" />
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygments.css" />
+        <script src="{{ SITEURL }}/theme/js/modernizr.js"></script>
 
         {% if FEED_ALL_ATOM %}
         <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
@@ -60,11 +61,12 @@
                     </ul>
                     <section class="top-bar-section">
                         <ul class="left">
-                        {% for p in PAGES %}
+                        {% for p in pages %}
                             <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+                        {% endfor %}
                         </ul>
                         <ul class="right">
-                        {% for cat, null in CATEGORIES %}
+                        {% for cat, null in categories %}
                             <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
                         {% endfor %}
                         </ul>
@@ -77,18 +79,20 @@
                         <hr>
                     </div>
                 </div>
-        
-                <div class="row">
+            
+                <div id="contents">
                 {% block content %}
-                    <div class="small-12 columns">
-                        <p>This that the other thing. This that the other thing. 
-                           This that the other thing. This that the other thing.</p>
-                        <p>This that the other thing.</p>
-                        <p>This that the other thing. <em>This should be italic.</em>
-                           This that the other thing. <a href="http://en.wikipedia.org/wiki/Main_Page">Wikipedia</a>
-                           This that the other thing. This that the other thing.</p>
-                        <p>This that the other thing. <strong>This should be bold.</strong></p>
-                        <p>This that the other thing.</p>
+                    <div class="row">
+                        <div class="small-12 columns">
+                            <p>This that the other thing. This that the other thing. 
+                               This that the other thing. This that the other thing.</p>
+                            <p>This that the other thing.</p>
+                            <p>This that the other thing. <em>This should be italic.</em>
+                               This that the other thing. <a href="http://en.wikipedia.org/wiki/Main_Page">Wikipedia</a>
+                               This that the other thing. This that the other thing.</p>
+                            <p>This that the other thing. <strong>This should be bold.</strong></p>
+                            <p>This that the other thing.</p>
+                        </div>
                     </div>
                 {% endblock content %}
                 </div>
@@ -98,18 +102,20 @@
                 </footer>
             </div>
             
-            <div class="image-pane main-content" style="background: url('{{ BACKDROP_IMAGE }}'); background-size:cover; background-position: center;">
+            <div class="image-pane main-content" style="background: url('{{SITEURL}}{{ BACKDROP_IMAGE }}'); background-size:cover; background-position: right;">
                 <div class="row">
                     <div class="small-12 medium-6 medium-push-3 large-reset-order large-12 columns">
                     {% if SITE_DESCRIPTION or EMAIL or SOCIAL %}
                         <div class="panel transparent" id="about-me">
                             <div class="row">
+                            {% if PROFILE_IMAGE %}
                                 <div class="show-for-medium-up medium-3 columns no-buffer">
-                                    <a class="th" href="{{ PROFILE_IMAGE_URL }}">
-                                        <img src="{{ PROFILE_IMAGE_URL }}">
+                                    <a class="th" href="{{SITEURL}}{{ PROFILE_IMAGE }}">
+                                        <img src="{{SITEURL}}{{ PROFILE_IMAGE }}">
                                     </a>
                                 </div>
-                                <div class="small-12 medium-9 columns">
+                            {% endif %}
+                                <div class="small-12 {% if PROFILE_IMAGE %}medium-9{% endif %} columns">
                                     {{ SITE_DESCRIPTION }}
                                 </div>
                             {% if EMAIL or SOCIAL %}
@@ -129,16 +135,30 @@
                     {% endif %}
                     &nbsp;
                     </div>
+<!--
                     <div class="small-12 medium-3 medium-pull-9 large-reset-order large-12 columns">
                     {% if LINKS %}
                         <ul class="blogroll">
-                            <li class="heading">Blogroll&hellip;</li>
+                            <li class="heading">Blogroll</li>
                         {% for name, url in LINKS %}
                             <li><a href="{{ url }}">{{ name }}</a></li>
                         {% endfor %}
                         </ul>
                     {% endif %}
                     </div>
+                    <div class="small-12 medium-3 large-12 columns">
+                        <div class="panel transparent">
+                        {% if GITHUB_ACTIVITY_FEED %}
+                                   <h2>Github Activity</h2>
+                                   <ul>
+                                   {% for entry in github_activity %}
+                                       <li><b>{{ entry[0] }}</b><br /> {{ entry[1] }}</li>
+                                   {% endfor %}
+                                   </ul>
+                        {% endif %}
+                        </div>
+                    </div>
+-->
 <!--
                     <div class="small-12 medium-3 large-12 columns">
                         <div class="small-6 medium-12 large-6 small-centered columns">
@@ -158,9 +178,9 @@
         </div>
         
         
-        <script src="{{ SITEURL }}/js/jquery.min.js"></script>
-        <script src="{{ SITEURL }}/js/foundation.min.js"></script>
-        <script src="{{ SITEURL }}/js/app.js"></script>
+        <script src="{{ SITEURL }}/theme/js/jquery.min.js"></script>
+        <script src="{{ SITEURL }}/theme/js/foundation.min.js"></script>
+        <script src="{{ SITEURL }}/theme/js/app.js"></script>
     </body>
   
 </html>
