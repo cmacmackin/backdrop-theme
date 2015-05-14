@@ -6,7 +6,7 @@
 <div class="row">
     <div class="small-12 columns">
         <h2>All Articles</h2>
-        {{ macros.page_list(articles_page, articles_paginator.num_pages, page_name, SITEURL) }}
+        {{ macros.page_list(articles_page, articles_paginator.num_pages, page_name, SITEURL, disqus=DISQUS_SITENAME) }}
     </div>
 </div>
 {% endblock content %}

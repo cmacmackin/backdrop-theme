@@ -51,17 +51,24 @@ $footer-height: rem-calc(300);
 }
 */
 
-p img {
-  float:left;
-  padding:5px
+.article p img {
+    float: left;
+    margin: 5px;
+    border: solid 4px #FFFFFF;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
 }
 
 #link-image img {
     max-height: 33%;
 }
 
-#about-me {
-    margin-bottom: 0;
+.about-me {
+    padding-bottom: rem-calc(20);
+    overflow: hidden;
+    
+    h5 {
+        margin-top: 0;
+    }
 }
 
 body:before {
@@ -132,12 +139,38 @@ footer {
     .image-pane {
         @include grid-column($columns:12,$collapse:true);
         z-index: 1;
+        box-shadow: inset 0px 0px 0 2000px rgba(0,0,0,0.15);
         background-size: cover;
         background-position: center;
         position: relative;
         padding-top: rem-calc(18);
         padding-bottom: rem-calc(18);
-        min-height: rem-calc(200);
+/*
+        min-height: rem-calc(350);
+        :not(i) {
+            font-family: 'PT Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        }
+*/
+
+        * {
+            color: $white;
+        }
+        
+        div, span, a, p {
+            font-size: 0.9rem;
+        }
+        
+        i {
+            color: inherit;
+        }
+        
+        $about-me-anchor-font-color: #DEDEDE;
+        a {
+            color: $about-me-anchor-font-color
+        }
+        a:active, a:hover {
+            color: scale-color($about-me-anchor-font-color, $lightness: -14%);
+        }
         
         @media #{$large-up} {
             @include grid-column($columns:4,$collapse:true);
@@ -212,17 +245,17 @@ nav.top-bar {
     .top-bar li.active:after {
         position: relative;
         display: block;
-        bottom: rem-calc(4);
+        bottom: rem-calc(5);
         width: 0;
         height: 0;
         left: 50%;
-        margin-left: rem-calc(-5);
-        margin-bottom: rem-calc(-5);
+        margin-left: rem-calc(-7);
+        margin-bottom: rem-calc(-7);
         vertical-align: middle;
         content: " ";
-        border-right: rem-calc(5) solid transparent;
-        border-bottom: rem-calc(5) solid $ghost;
-        border-left: rem-calc(5) solid transparent;
+        border-right: rem-calc(7) solid transparent;
+        border-bottom: rem-calc(7) solid $ghost;
+        border-left: rem-calc(7) solid transparent;
     }
 }
 
@@ -231,6 +264,15 @@ div.transparent {
     .row {
         margin-left: 0;
         margin-right: 0;
+    }
+}
+
+table.transparent {
+    background-color:rgba(255,255,255,0.6);
+    margin-left: auto;
+    margin-right: auto;
+    thead, tr:nth-child(even) {
+        background-color:rgba(249,249,249,0.6);    
     }
 }
 
@@ -269,6 +311,7 @@ div.transparent {
 }
 */
 
+/*
 ul.link-list {
     margin-left: auto;
     margin-right: auto;
@@ -282,6 +325,7 @@ ul.link-list {
         margin-right: rem-calc(10);
     }
 }
+*/
 
 .copyright {
     position: absolute;
@@ -296,12 +340,17 @@ ul.link-list {
 }
 
 .blogroll {
+/*
     @include panel;
+*/
     @include side-nav;
     text-align: center;
+/*
     background-color:rgba(242,242,242,0.6);
+*/
     margin-left: 20%;
     margin-right: 20%;
+    margin-bottom: rem-calc(20);
     @media #{$medium-only} {
         margin-left: initial;
         margin-right: initial;
@@ -367,4 +416,39 @@ pre {
     overflow-x: auto;
     overflow-wrap: normal;
     white-space: pre;
+}
+
+.inline-center {
+    list-style-type: none;
+    text-align: center;
+    margin-bottom: 0;
+    margin-left: 0;
+    
+    li {
+        display: inline-block;
+    }
+    
+    a:not(.button) {
+        padding-left: rem-calc(11);
+        padding-right: rem-calc(11);
+        padding-top: rem-calc(6);
+        padding-bottom: rem-calc(6);
+    }
+    
+    a:not(.button):hover {
+        background: rgba(0, 0, 0, 0.05);
+    }
+}
+
+.social-list {
+    margin-top: rem-calc(14);
+}
+
+.link-list {
+/*
+    @media #{$large-up} {
+        position: absolute;
+        bottom: rem-calc(18);
+    }
+*/
 }

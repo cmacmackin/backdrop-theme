@@ -9,7 +9,7 @@
         <h2><a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a></h2>
         {% for a in articles %}
             {% if loop.index < 4 %}
-              {{ macros.article_summary(a,SITEURL,False,False) }}
+              {{ macros.article_summary(a,SITEURL,False,False,disqus=DISQUS_SITENAME) }}
             {% elif loop.index == 4 %}
               <a class="button" href="{{ SITEURL }}/{{ author.url }}">See All&hellip;</a>
             {% endif %}

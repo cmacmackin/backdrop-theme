@@ -54,7 +54,7 @@ module.exports = function(grunt) {
       pelican_html: {
 	  expand: true,
           flatten: true,
-	  src: ['*.html'],
+	  src: ['html/*'],
 	  dest: 'pelican-theme/templates'
       }
     },

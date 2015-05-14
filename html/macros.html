@@ -1,11 +1,11 @@
-{% macro article_info(article, url) -%}
+{% macro article_info(article, url, disqus=None) -%}
 <div class="row info-bar" style="margin-left:0rem;margin-bottom:6px;">
     <div class="small-12 columns">
         <ul class="inline-list">
             <li><span><i class="fa fa-calendar"></i>&nbsp; {{ article.locale_date }}</span></li>
             <li><span><i class="fa fa-folder-open"></i>&nbsp; <a href="{{ url }}/{{ article.category.url }}">{{ article.category }}</a></span></li>
-        {% if DISQUS_SITENAME %}
-            <li><a href="{{ url }}/{{ article.url }}#disqus_thread" rel="bookmark" title="Disqus Comments"><i class="fa fa-comments"></i>&nbsp; {{ article.title }}</a></li>
+        {% if disqus %}
+            <li><span><i class="fa fa-comments"></i>&nbsp; <a href="{{ url }}/{{ article.url }}#disqus_thread" rel="bookmark" title="Disqus Comments">{{ article.title }}</a></span></li>
         {% endif %}
         {% if article.tags %}
             <li>
@@ -22,9 +22,9 @@
 </div>
 {%- endmacro %}
 
-{% macro article_summary(article,url,showimg=False,imgside=True) -%}
+{% macro article_summary(article,url,showimg=False,imgside=True,disqus=None) -%}
 {% if showimg and imgside and article.featured_image %}
-    {% set numcols1 = 8 %}
+    {% set numcols1 = 7 %}
     {% set numcols2 = 12 - numcols1 %}
 {% else %}
     {% set numcols1 = 12 %}
@@ -32,7 +32,7 @@
 {% endif %}
 <section class="summary">
     <h3><a href="{{ url }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h3>
-    {{ article_info(article, url) }}
+    {{ article_info(article, url, disqus) }}
     <div class="row summary">
         <div class="small-12 medium-{{ numcols1 }} columns">
             {{ article.summary }}
@@ -79,9 +79,9 @@
 {% endmacro %}
 
 
-{% macro page_list(pobj, num_pages, page_name, url) %}
+{% macro page_list(pobj, num_pages, page_name, url, disqus=None) %}
 {% for a in pobj.object_list %}
-  {{ article_summary(a, url, True) }}
+  {{ article_summary(a, url, True, True, disqus) }}
 {% endfor %}
 {{ pagination(pobj, num_pages, page_name, url) }}
 {% endmacro %}

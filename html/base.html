@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="no-js" lang="en">
     <head>
-        <link rel="shortcut icon" href=" {{ SITEURL }}{{ FAVICON }}" />
+        <link rel="shortcut icon" href="{{ FAVICON|replace('{filename}',SITEURL)|replace('|filename|',SITEURL) }}" />
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,6 +47,18 @@
         <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
         {% endif %}
 
+        {% if DISQUS_SITENAME %}
+        <script type="text/javascript">
+            var disqus_shortname = '{{ DISQUS_SITENAME }}'; 
+
+            (function () {
+                var s = document.createElement('script'); s.async = true;
+                s.type = 'text/javascript';
+                s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+                (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+            }());
+        </script>
+        {% endif %}
     </head>
       
 
@@ -83,16 +95,6 @@
                 <div id="contents">
                 {% block content %}
                     <div class="row">
-                        <div class="small-12 columns">
-                            <p>This that the other thing. This that the other thing. 
-                               This that the other thing. This that the other thing.</p>
-                            <p>This that the other thing.</p>
-                            <p>This that the other thing. <em>This should be italic.</em>
-                               This that the other thing. <a href="http://en.wikipedia.org/wiki/Main_Page">Wikipedia</a>
-                               This that the other thing. This that the other thing.</p>
-                            <p>This that the other thing. <strong>This should be bold.</strong></p>
-                            <p>This that the other thing.</p>
-                        </div>
                     </div>
                 {% endblock content %}
                 </div>
@@ -102,68 +104,63 @@
                 </footer>
             </div>
             
-            <div class="image-pane main-content" style="background: url('{{SITEURL}}{{ BACKDROP_IMAGE }}'); background-size:cover; background-position: right;">
+            <div class="image-pane main-content" style="background: url('{{ BACKDROP_IMAGE|replace('{filename}',SITEURL)|replace('|filename|',SITEURL) }}'); background-size:cover; background-position: right;">
                 <div class="row">
-                    <div class="small-12 medium-6 medium-push-3 large-reset-order large-12 columns">
+                    <div class="small-12 medium-4 large-12 columns">
                     {% if SITE_DESCRIPTION or EMAIL or SOCIAL %}
-                        <div class="panel transparent" id="about-me">
-                            <div class="row">
-                            {% if PROFILE_IMAGE %}
-                                <div class="show-for-medium-up medium-3 columns no-buffer">
-                                    <a class="th" href="{{SITEURL}}{{ PROFILE_IMAGE }}">
-                                        <img src="{{SITEURL}}{{ PROFILE_IMAGE }}">
-                                    </a>
-                                </div>
-                            {% endif %}
-                                <div class="small-12 {% if PROFILE_IMAGE %}medium-9{% endif %} columns">
-                                    {{ SITE_DESCRIPTION }}
-                                </div>
-                            {% if EMAIL or SOCIAL %}
-                                <div class="small-12 columns">
-                                    <ul class="link-list">
-                                    {% if EMAIL%}
-                                        <li><a href="mailto:{{ EMAIL}}"><i class="fa fa-envelope"></i>&nbsp; Email</a></li>
-                                    {% endif %}
-                                    {% for name,link in SOCIAL %}
-                                        <li><a href="{{ link }}"><i class="fa fa-{{ name|lower }}"></i>&nbsp; {{ name }}</a></li>
-                                    {% endfor %}
-                                    </ul>
-                                </div>
-                            {% endif %}
+                        <h5 class='text-center'>About</h5>
+                        <div class="about-me">
+                        {% if PROFILE_IMAGE %}
+                            <div class="hide-for-medium-only small-3 columns no-buffer">
+                                <a class="th" href="{{ PROFILE_IMAGE|replace('{filename}',SITEURL)|replace('|filename|',SITEURL) }}">
+                                    <img src="{{ PROFILE_IMAGE|replace('{filename}',SITEURL)|replace('|filename|',SITEURL) }}">
+                                </a>
                             </div>
+                        {% endif %}
+                            <div class="{% if PROFILE_IMAGE %}small-9 medium-12 large-9{% else %}small-12{% endif %} columns text-justify">
+                                {{ SITE_DESCRIPTION }}
+                            </div>
+                        {% if EMAIL or SOCIAL %}
+                            <div class="small-12 columns">
+                                <ul class="inline-center social-list">
+                                {% if EMAIL%}
+                                    <li><a href="mailto:{{ EMAIL}}"><i class="fa fa-envelope"></i>&nbsp; Email</a></li>
+                                {% endif %}
+                                {% for name,link in SOCIAL %}
+                                    <li><a href="{{ link }}"><i class="fa fa-{{ name|lower }}"></i>&nbsp; {{ name }}</a></li>
+                                {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
                         </div>
                     {% endif %}
-                    &nbsp;
                     </div>
-<!--
-                    <div class="small-12 medium-3 medium-pull-9 large-reset-order large-12 columns">
+
+                    <div class="small-12 medium-4  large-12 columns link-list">
                     {% if LINKS %}
-                        <ul class="blogroll">
-                            <li class="heading">Blogroll</li>
+                        <h5 class='text-center'>Links</h5>
+                        <ul class="inline-center">
                         {% for name, url in LINKS %}
                             <li><a href="{{ url }}">{{ name }}</a></li>
                         {% endfor %}
                         </ul>
                     {% endif %}
                     </div>
-                    <div class="small-12 medium-3 large-12 columns">
-                        <div class="panel transparent">
-                        {% if GITHUB_ACTIVITY_FEED %}
-                                   <h2>Github Activity</h2>
-                                   <ul>
-                                   {% for entry in github_activity %}
-                                       <li><b>{{ entry[0] }}</b><br /> {{ entry[1] }}</li>
-                                   {% endfor %}
-                                   </ul>
-                        {% endif %}
-                        </div>
-                    </div>
--->
+
 <!--
                     <div class="small-12 medium-3 large-12 columns">
-                        <div class="small-6 medium-12 large-6 small-centered columns">
-                            <a class="th" href="http://www.ox.ac.uk/"><img src="oxford.png"></a>
-                        </div>
+                    {% if GITHUB_ACTIVITY_FEED %}
+                        <table class='transparent'>
+                            <thead>
+                                <th class='text-center'>GitHub Activity</th>
+                            </thead>
+                            <tbody>
+                            {% for entry in github_activity %}
+                                <tr><td>{{ entry[1] }}</td></tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    {% endif %}
                     </div>
 -->
                </div>
