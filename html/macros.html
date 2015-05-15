@@ -36,6 +36,7 @@
     <div class="row summary">
         <div class="small-12 medium-{{ numcols1 }} columns">
             {{ article.summary }}
+            <p class='text-right'><a href="{{ url }}/{{ article.url }}">Continue reading&hellip;</a></p>
         </div>
     {% if showimg and article.featured_image %}
         <div class="small-12 medium-{{ numcols2 }} columns">
