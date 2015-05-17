@@ -34,17 +34,17 @@
     <h3><a href="{{ url }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h3>
     {{ article_info(article, url, disqus) }}
     <div class="row summary">
-        <div class="small-12 medium-{{ numcols1 }} columns">
-            {{ article.summary }}
-            <p class='text-right'><a href="{{ url }}/{{ article.url }}">Continue reading&hellip;</a></p>
-        </div>
     {% if showimg and article.featured_image %}
-        <div class="small-12 medium-{{ numcols2 }} columns">
+        <div class="small-12 medium-{{ numcols2 }} {% if imgside %}medium-push-{{ numcols1 }} {% endif %}columns">
             <a class="th" href="{{ url }}/{{ article.url }}">
                 <img src="{{ article.featured_image }}">
             </a>
         </div>
     {% endif %}
+        <div class="small-12 medium-{{ numcols1 }} {% if showimg and imgside and article.featured_image %}medium-pull-{{ numcols2 }} {% endif %}columns">
+            {{ article.summary }}
+            <p class='text-right'><a href="{{ url }}/{{ article.url }}"><em>Continue reading&hellip;</em></a></p>
+        </div>
     </div>
 </section>
 {%- endmacro %}

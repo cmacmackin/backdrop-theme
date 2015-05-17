@@ -44,13 +44,6 @@
 
 $footer-height: rem-calc(300);
 
-/*
-.main-content {
-    padding-bottom: $footer-height;
-    overflow: auto;
-}
-*/
-
 .article p img {
     float: left;
     margin: 5px;
@@ -98,13 +91,6 @@ footer {
         margin-top: rem-calc(21);
         margin-bottom: rem-calc(20);
     }
-/*
-    position: absolute;
-    bottom: 0;
-    height: $footer-height;
-    margin-top: -$footer-height;
-    padding-top: rem-calc(10);
-*/
 }
 
 .sub-footer p {
@@ -116,10 +102,7 @@ footer {
 .master-row {
     @include grid-row();
     max-width: none;
-    height: 100%;
-/*
-    z-index: -10000;
-*/
+
     .content-pane {
         @include grid-column($columns:12,$collapse:true);
         @media #{$large-up} {
@@ -129,7 +112,7 @@ footer {
         z-index: 10;
         box-shadow: 0 0 rem-calc(10) rem-calc(2) #333333;
         position:relative;
-        min-height: 100%;
+        
         .row {
             margin-right: 0;
             min-width: 75%;
@@ -145,15 +128,13 @@ footer {
         position: relative;
         padding-top: rem-calc(18);
         padding-bottom: rem-calc(18);
-/*
-        min-height: rem-calc(350);
-        :not(i) {
-            font-family: 'PT Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-        }
-*/
 
         * {
             color: $white;
+        }
+        
+        form {
+            color:  $body-font-color;
         }
         
         div, span, a, p {
@@ -164,7 +145,7 @@ footer {
             color: inherit;
         }
         
-        $about-me-anchor-font-color: #DEDEDE;
+        $about-me-anchor-font-color: $silver;
         a {
             color: $about-me-anchor-font-color
         }
@@ -185,32 +166,48 @@ footer {
                 margin-right: auto;
             }
         }
-    
-/*
-        .th {
-            margin-top: rem-calc(14);
-            margin-bottom: rem-calc(14);
-        }
-*/
     }
 }
 
+/*
+@media #{$large-up} {
+    .master-row {
+        height: 100%;
+    }
+    .content-pane {
+        height: 100%;
+    }
+    #content1 {
+        min-height: 100%;
+        margin-bottom: -206px;
+    }
+    #content1:after {
+        content: "";
+        display: block;
+    }
+    #foot, #content1:after {
+        height:206px;
+    }
+}
+*/
+
 .title-bar {
     h1 {
-        font-size: rem-calc(60);
+        font-size: rem-calc(50);
         display: inline-block;
         margin-right: rem-calc(20);
         margin-bottom: 0;
     }
     h2 {
-/*
-        font-size: rem-calc(49);
-*/
         line-height: 0.8;
         display: inline-block;
         margin-bottom: 0;
         margin-top: rem-calc(-10);
     }
+    @media #{$medium-up} {
+      h1 { font-size: rem-calc(60); }
+    }
+
     hr {
         margin-top: rem-calc(10);
         margin-bottom: rem-calc(10);
@@ -297,36 +294,6 @@ table.transparent {
     }
 }
 
-/*
-.social-button {
-    @include button;
-    margin-top: rem-calc(5);
-    margin-left: rem-calc(1);
-    margin-right: rem-calc(1);
-    padding-top: rem-calc(8.5);
-    padding-bottom: rem-calc(8.5);
-    padding-left: rem-calc(5);
-    padding-right: rem-calc(5);
-    margin-bottom: 0;
-}
-*/
-
-/*
-ul.link-list {
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 0;
-    margin-top: rem-calc(10);
-    list-style-type: none;
-    text-align: center;
-    li {
-        display: inline-block;
-        margin-left: rem-calc(10);
-        margin-right: rem-calc(10);
-    }
-}
-*/
-
 .copyright {
     position: absolute;
     bottom: 0;
@@ -340,23 +307,14 @@ ul.link-list {
 }
 
 .blogroll {
-/*
-    @include panel;
-*/
     @include side-nav;
     text-align: center;
-/*
-    background-color:rgba(242,242,242,0.6);
-*/
     margin-left: 20%;
     margin-right: 20%;
     margin-bottom: rem-calc(20);
     @media #{$medium-only} {
         margin-left: initial;
         margin-right: initial;
-/*
-        margin-top: rem-calc(14);
-*/
     }
     
     li {
@@ -375,9 +333,6 @@ ul.link-list {
 }
 
 .info-bar {
-/*
-    @include panel;
-*/
     border-top: rem-calc(1) solid $silver;
     border-bottom: rem-calc(1) solid $silver;
     padding: rem-calc(8);
@@ -398,9 +353,11 @@ p.tag-page {
 }
 
 .summary {
-    padding-bottom: rem-calc(5);
     pre {
         display: none;
+    }
+    .th {
+        margin-bottom: rem-calc(20);
     }
 }
 
@@ -444,14 +401,6 @@ pre {
     margin-top: rem-calc(14);
 }
 
-.link-list {
-/*
-    @media #{$large-up} {
-        position: absolute;
-        bottom: rem-calc(18);
-    }
-*/
-}
 
 .img-center {
     float: none !important;
@@ -459,3 +408,5 @@ pre {
     margin-right: auto !important;
     display: block;
 }
+
+@import "tipuesearch";

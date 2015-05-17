@@ -5,7 +5,7 @@ module.exports = function(grunt) {
     sass: {
       options: {
           includePaths: ['bower_components/foundation/scss',
-			 'bower_components/fontawesome/scss/']
+                         'bower_components/fontawesome/scss/']
       },
       dist: {
         options: {
@@ -26,24 +26,31 @@ module.exports = function(grunt) {
           dest: 'fonts'
       },
       js: {
-	  expand: true,
+          expand: true,
           flatten: true,
-	  src: ['bower_components/modernizr/modernizr.js',
-	        'bower_components/jquery/dist/jquery.min.js',
+          src: ['bower_components/modernizr/modernizr.js',
+                'bower_components/jquery/dist/jquery.min.js',
+                'bower_components/jquery/dist/jquery.min.map',
                 'bower_components/foundation/js/foundation.min.js'],
-	  dest: 'js'
-	},
+          dest: 'js'
+      },
+      tipue: {
+          expand: true,
+          flatten: false,
+          src: ['loader.gif'],
+          dest: 'pelican-theme/static/'
+      },
       pelican_css: {
           expand: true,
           flatten: true,
-	  src: ['css/*'],
-	  dest: 'pelican-theme/static/css'
-	},
+          src: ['css/*'],
+          dest: 'pelican-theme/static/css'
+      },
       pelican_js: {
-	  expand: true,
+          expand: true,
           flatten: true,
-	  src: ['js/*'],
-	  dest: 'pelican-theme/static/js'
+          src: ['js/*'],
+          dest: 'pelican-theme/static/js'
       },
       pelican_fonts: {
         expand: true,
@@ -52,16 +59,16 @@ module.exports = function(grunt) {
         dest: 'pelican-theme/static/fonts'
       },
       pelican_html: {
-	  expand: true,
+          expand: true,
           flatten: true,
-	  src: ['html/*'],
-	  dest: 'pelican-theme/templates'
+          src: ['html/*'],
+          dest: 'pelican-theme/templates'
       },
       pelican_theme: {
-	  expand: true,
-	  flatten: true,
-	  src: ['theme-files-extra/*'],
-	  dest: 'pelican-theme/',
+          expand: true,
+          flatten: true,
+          src: ['theme-files-extra/*'],
+          dest: 'pelican-theme/',
       }
     },
     
