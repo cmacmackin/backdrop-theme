@@ -17,27 +17,36 @@ desired.
 
 ## About the Theme
 Backdrop is a responsive theme which adjusts itself to different screen and
-window sizes. It is designed to look modern, but at the same time traditional,
+window sizes, built on [Zurb Foundation](http://foundation.zurb.com/).
+It is designed to look modern, but at the same time traditional,
 using a serif font and darker colours. It features full
 [Disqus](https://disqus.com/) integration and can be customized through
 variables in your Pelican configuration file. See it live at my blog,
 [The Political Physicist](http://cmacmackin.github.io/blog/).
 
-![The homepage](https://raw.githubusercontent.com/cmacmackin/backdrop-theme/master/screenshot1.png)
-![An article](https://raw.githubusercontent.com/cmacmackin/backdrop-theme/master/screenshot2.png)
+![The homepage](https://raw.githubusercontent.com/cmacmackin/backdrop-theme/master/theme-files-extra/screenshot1.png)
+![An article](https://raw.githubusercontent.com/cmacmackin/backdrop-theme/master/theme-files-extra/screenshot2.png)
 
 This is an example of the page footer on a medium screen.
-![The footer on a medium screen](https://raw.githubusercontent.com/cmacmackin/backdrop-theme/master/screenshot3.png)
+![The footer on a medium screen](https://raw.githubusercontent.com/cmacmackin/backdrop-theme/master/theme-files-extra/screenshot3.png)
+
+I you want to customize Backdrop, perhaps consider using
+[Sass](http://sass-lang.com/) and [Grunt](http://gruntjs.com/), as I did when
+originally designing it. See the
+[backdrop-theme](https://github.com/cmacmackin/backdrop-theme) repository.
+
 
 ## Compatible Plugins
 The theme has been designed to use the [representative_image](https://github.com/getpelican/pelican-plugins/tree/master/representative_image) plugin. However,
-websites will look fine without it. It is also known to work with the
+websites will look fine without it. The
+[tipue_search](https://github.com/getpelican/pelican-plugins/tree/master/tipue_search) plugin (which allows the website to be searched) should be used. In order
+for this to work, `'search.html'` must be added to the `DIRECT_TEMPLATES`
+variable. Backdrop is also known to work with the
 [render_math](https://github.com/getpelican/pelican-plugins/tree/master/render_math)
 and [sitemap](https://github.com/getpelican/pelican-plugins/tree/master/sitemap)
 plugins, but these work with all themes and Backdrop is in no way special in
 this regard. In future, support may be added for the
-[pelican-githubprojects](https://github.com/kura/pelican-githubprojects) and
-[tipue_search](https://github.com/getpelican/pelican-plugins/tree/master/tipue_search) plugins.
+[pelican-githubprojects](https://github.com/kura/pelican-githubprojects) plugin.
 
 ## Theme Variables
 The following variables can be set in your `pelicanconf.py` file in order to
