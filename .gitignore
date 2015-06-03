@@ -1,7 +1,7 @@
 *.DS_Store
 /css/*
-/bower_components/*
-/node_modules/*
+#/bower_components/*
+#/node_modules/*
 /pelican-theme/
 /js/foundation.min.js
 /js/jquery.min.js
